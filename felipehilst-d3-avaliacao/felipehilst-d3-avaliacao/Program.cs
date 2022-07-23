@@ -1,5 +1,4 @@
 ﻿using felipehilst_d3_avaliacao.Repositories;
-using felipehilst_d3_avaliacao.Models;
 
 namespace felipehilst_d3_avaliacao
 {
@@ -7,12 +6,10 @@ namespace felipehilst_d3_avaliacao
     {
         static void Main(string[] args)
         {
-            using (var users = new EagerLoadingDbContext())
-            {
-                var first = users.Users.FirstOrDefault();
+            UserRepository _userRepository = new();
 
-                Console.Write($"user: {first?.UserId}; {first?.Nickname}; {first?.Email}; {first?.Psw}");
-            }
+            Console.WriteLine($"\nUser admin: {_userRepository.GetUserByEmail("admin@email.com")?.UserId}\n");
+            Console.WriteLine($"\nUser hilst: {_userRepository.GetUserByEmail("hilst@email.com")?.UserId}\n");
         }
     }
 }

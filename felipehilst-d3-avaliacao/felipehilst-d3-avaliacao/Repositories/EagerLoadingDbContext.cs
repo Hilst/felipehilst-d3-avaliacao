@@ -16,7 +16,6 @@ namespace felipehilst_d3_avaliacao.Repositories
 
             var connectionString = configuration["PostgresConnectionString"];
 
-            Console.WriteLine(connectionString);
             optionsBuilder
                 .UseNpgsql(connectionString)
                 .UseSnakeCaseNamingConvention();
