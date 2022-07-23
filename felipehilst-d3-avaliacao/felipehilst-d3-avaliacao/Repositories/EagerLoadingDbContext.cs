@@ -24,4 +24,3 @@ namespace felipehilst_d3_avaliacao.Repositories
         public DbSet<User> Users { get; set; }
     }
 }
-

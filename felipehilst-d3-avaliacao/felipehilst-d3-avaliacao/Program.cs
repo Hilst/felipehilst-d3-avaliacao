@@ -1,4 +1,6 @@
-﻿using felipehilst_d3_avaliacao.Repositories;
+﻿using felipehilst_d3_avaliacao.Models;
+using felipehilst_d3_avaliacao.Repositories;
+using felipehilst_d3_avaliacao.Services;
 
 namespace felipehilst_d3_avaliacao
 {
@@ -6,10 +8,38 @@ namespace felipehilst_d3_avaliacao
     {
         static void Main(string[] args)
         {
-            UserRepository _userRepository = new();
+            UserRepository userRepository = new();
+            LogonService logonService = new(userRepository);
 
-            Console.WriteLine($"\nUser admin: {_userRepository.GetUserByEmail("admin@email.com")?.UserId}\n");
-            Console.WriteLine($"\nUser hilst: {_userRepository.GetUserByEmail("hilst@email.com")?.UserId}\n");
+            try
+            {
+                User user = logonService.TryLogon("admin@email.com", "admin123");
+                Console.WriteLine($"\n{user.UserId}; {user.Nickname}; {user.Email}; {user.Psw}\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            try
+            {
+                User user = logonService.TryLogon("admin@email.com", "abc");
+                Console.WriteLine($"\n{user.UserId}; {user.Nickname}; {user.Email}; {user.Psw}\n");
+            }
+            catch (InvalidLoginException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            try
+            {
+                User user = logonService.TryLogon("hilst@email.com", "hilst0987");
+                Console.WriteLine($"\n{user.UserId}; {user.Nickname}; {user.Email}; {user.Psw}\n");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

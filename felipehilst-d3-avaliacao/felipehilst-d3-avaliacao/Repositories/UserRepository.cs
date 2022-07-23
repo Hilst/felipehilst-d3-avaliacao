@@ -1,4 +1,4 @@
-﻿using felipehilst_d3_avaliacao.Interfaces;
+﻿using felipehilst_d3_avaliacao.Interfaces.Repositories;
 using felipehilst_d3_avaliacao.Models;
 
 namespace felipehilst_d3_avaliacao.Repositories
@@ -18,4 +18,3 @@ namespace felipehilst_d3_avaliacao.Repositories
         }
     }
 }
-
