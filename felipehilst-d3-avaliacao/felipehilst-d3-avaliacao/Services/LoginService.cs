@@ -4,17 +4,20 @@ using felipehilst_d3_avaliacao.Models;
 
 namespace felipehilst_d3_avaliacao.Services
 {
-    public class LogonService: ILoginService
+    public class LoginService: ILoginService
     {
         private readonly IUsersRepository _usersRepository;
 
-        public LogonService(IUsersRepository usersRepository)
+        public LoginService(IUsersRepository usersRepository)
         {
             _usersRepository = usersRepository;
         }
 
-        public User TryLogon(string email, string psw)
+        public User TryLogin(string? email, string? psw)
         {
+            if (email == null) { throw new InvalidEmailException(); }
+            if (email == null) { throw new InvalidPswException(); }
+
             User? userToLog = _usersRepository.GetUserByEmail(email);
 
             if (userToLog == null) { throw new InvalidLoginException(); }
@@ -33,6 +36,24 @@ namespace felipehilst_d3_avaliacao.Services
     {
         public InvalidLoginException()
             : base("\nEmail e/ou senha inválidos, tente novamente\n")
+        {
+        }
+    }
+
+    [Serializable]
+    class InvalidEmailException : Exception
+    {
+        public InvalidEmailException()
+            : base("\nO email não pode estar vazio\n")
+        {
+        }
+    }
+
+    [Serializable]
+    class InvalidPswException : Exception
+    {
+        public InvalidPswException()
+            : base("\nSenha não pode estar vazia\n")
         {
         }
     }

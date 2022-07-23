@@ -4,6 +4,6 @@ namespace felipehilst_d3_avaliacao.Interfaces.Services
 {
     public interface ILoginService
     {
-        User TryLogon(string email, string psw);
+        User TryLogin(string? email, string? psw);
     }
 }
