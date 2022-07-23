@@ -1,5 +1,4 @@
-﻿using System;
-namespace felipehilst_d3_avaliacao.Application
+﻿namespace felipehilst_d3_avaliacao.Application
 {
     public enum AppStates
     {
