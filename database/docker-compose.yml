@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: pg_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: felipehilst-d3-avaliacao
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/create_table.sql:/docker-entrypoint-initdb.d/create_table.sql # cria tabela
+      - ./postgres-data:/var/lib/postgresql/data
+
+  # pgadmin:
+  #   container_name: pgadmin4_container
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com # email login pgadim4
+  #     PGADMIN_DEFAULT_PASSWORD: admin # psw login pgadmin4
+  #   ports:
+  #     - "5050:80"
+  #   volumes:
+  #     - ./config/servers.json:/pgadmin4/servers.json # pre-configuracao server connection
+
+volumes:
+  postgres-data:

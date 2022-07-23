@@ -1,0 +1,13 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "felipehilst-d3-avaliacao",
+        "Group": "Servers",
+        "Host": "pg_container",
+        "Port": 5432,
+        "MaintenanceDB": "postgres",
+        "Username": "root",
+        "SSLMode": "prefer"
+      }
+    }
+  }
