@@ -23,7 +23,6 @@
     <None Remove="BCrypt.Net-Core" />
     <None Remove="Terminal.Gui" />
     <None Remove="Utils\" />
-    <None Remove="Controller\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.5" />
@@ -40,7 +39,6 @@
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
     <Folder Include="Utils\" />
-    <Folder Include="Controller\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="config.json">
