@@ -18,7 +18,7 @@ namespace felipehilst_d3_avaliacao.Repositories
 
             optionsBuilder
                 .UseNpgsql(connectionString)
-                .UseSnakeCaseNamingConvention();
+                .UseLowerCaseNamingConvention();
         }
 
         public DbSet<User>? Users { get; set; }

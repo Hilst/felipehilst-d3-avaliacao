@@ -22,7 +22,7 @@ namespace felipehilst_d3_avaliacao.Services
 
             if (userToLog == null) { throw new InvalidLoginException(); }
 
-            if (BCrypt.Net.BCrypt.Verify(psw, userToLog.Psw))
+            if (BCrypt.Net.BCrypt.Verify(psw, userToLog.Senha))
             {
                 return userToLog;
             }
