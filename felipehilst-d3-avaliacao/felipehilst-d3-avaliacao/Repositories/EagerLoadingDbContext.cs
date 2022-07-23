@@ -21,6 +21,6 @@ namespace felipehilst_d3_avaliacao.Repositories
                 .UseSnakeCaseNamingConvention();
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User>? Users { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace felipehilst_d3_avaliacao.Repositories
 
             using (var dbContext = new EagerLoadingDbContext())
             {
-                userWithEmail = dbContext.Users.FirstOrDefault(u => u.Email == email);
+                userWithEmail = dbContext?.Users?.FirstOrDefault(u => u.Email == email);
             }
 
             return userWithEmail;
