@@ -43,8 +43,9 @@ namespace felipehilst_d3_avaliacao.Utils
 
         private static string PrepareLoginLine(bool logged, User user)
         {
+            string logInfo = $"INFO [{DateTime.Now}] -";
             string tipoAcesso = (logged) ? "logou" : "deslogou";
-            return $"O usuário {user.Nome} ({user.Id}) se {tipoAcesso} ao sistema às {DateTime.Now}";
+            return $"{logInfo} O usuário {user.Nome} ({user.Id}) se {tipoAcesso} ao sistema";
         }
 
         private static void AddLine(string path, string newLine)
