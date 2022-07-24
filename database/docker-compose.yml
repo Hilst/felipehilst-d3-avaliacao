@@ -14,7 +14,7 @@ services:
       - "5432:5432"
     volumes:
       - ./sql/postgresql_create_table.sql:/docker-entrypoint-initdb.d/create_table.sql # cria tabela
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./postgre-data:/var/lib/postgresql/data
 
   # pgadmin:
   #   container_name: pgadmin4_container
