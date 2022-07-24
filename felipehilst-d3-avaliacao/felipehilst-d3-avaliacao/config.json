@@ -1,7 +1,8 @@
 ﻿{
-  "PostgresConnectionString": "Host=localhost;Port=5432;Database=felipehilst-d3-avaliacao;User Id=root;Password=root;",
+  "ConnectionType": "PostgreSQL",
+  "ConnectionStrings": {
+    "SQLServer": "Data source=DESKTOP-SM06MEH; initial catalog=felipehilst-d3-avaliacao; user id=sa; pwd=sa_senha_admin;",
+    "PostgreSQL": "Host=localhost;Port=5432;Database=felipehilst-d3-avaliacao;User Id=root;Password=root"
+  },
   "LogPath": "logs/log.txt"
 }
-
-// Data source=localhost:5432; initial catalog=felipehilst-d3-avaliacao; user id=root; pwd=root;
-// Host=localhost;Port=5432;Database=felipehilst-d3-avaliacao;User Id=root;Password=root

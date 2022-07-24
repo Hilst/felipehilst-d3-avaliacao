@@ -6,6 +6,7 @@ namespace felipehilst_d3_avaliacao.Repositories
 {
     public class EagerLoadingDbContext : DbContext
     {
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var configBuilder = new ConfigurationBuilder()
@@ -14,11 +15,26 @@ namespace felipehilst_d3_avaliacao.Repositories
 
             var configuration = configBuilder.Build();
 
-            var connectionString = configuration["PostgresConnectionString"];
+            var connectionType = configuration["ConnectionType"];
 
-            optionsBuilder
-                .UseNpgsql(connectionString)
-                .UseLowerCaseNamingConvention();
+            switch (connectionType)
+            {
+                case "SQLServer":
+                    optionsBuilder
+                        .UseSqlServer(configuration.GetConnectionString(connectionType))
+                        .UseLowerCaseNamingConvention();
+                    break;
+                case "PostgreSQL":
+                    optionsBuilder
+                        .UseNpgsql(configuration.GetConnectionString(connectionType))
+                        .UseLowerCaseNamingConvention();
+                    break;
+                default:
+                    optionsBuilder
+                        .UseNpgsql(configuration.GetConnectionString(connectionType))
+                        .UseLowerCaseNamingConvention();
+                    break;
+            }
         }
 
         public DbSet<User>? Users { get; set; }
