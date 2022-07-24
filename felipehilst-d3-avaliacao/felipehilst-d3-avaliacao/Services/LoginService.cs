@@ -35,7 +35,7 @@ namespace felipehilst_d3_avaliacao.Services
     class InvalidLoginException : Exception
     {
         public InvalidLoginException()
-            : base("\nEmail e/ou senha inválidos, tente novamente\n")
+            : base("\nEmail e/ou senha inválidos, tente acessar novamente\n")
         {
         }
     }

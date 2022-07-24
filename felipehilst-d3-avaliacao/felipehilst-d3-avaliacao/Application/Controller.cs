@@ -54,13 +54,15 @@ namespace felipehilst_d3_avaliacao.Application
                         break;
 
                     case AppStates.AWAIT_CREDENTIALS:
-                        Console.WriteLine("\nIniciando seu acesso ao sistema ...\n");
+                        Console.WriteLine("\nChecar credenciais\n");
 
                         Console.WriteLine("\nDigite o seu email de acesso:");
                         var email = Console.ReadLine();
 
                         Console.WriteLine("\nDigite sua senha de acesso:");
                         var psw = Console.ReadLine();
+
+                        Console.WriteLine("\nValidando credenciais de acesso ...\n");
 
                         try
                         {
@@ -73,7 +75,7 @@ namespace felipehilst_d3_avaliacao.Application
 
                             if (((InvalidLoginException) ex) != null)
                             {
-                                state = AppStates.AWAIT_CREDENTIALS;
+                                state = AppStates.AWAIT_ACCESS;
                             }
                         }
 
